@@ -1,0 +1,20 @@
+{
+  "formEntryData": {
+    "firstName": "Buggs",
+    "lastName": "Bunny",
+    "email": "buggs.bunny@example.com",
+    "gender": "Male",
+    "mobile": "1234567890",
+     "dateOfBirth": {
+      "day": "15",
+      "month": "March",
+      "year": "1990"
+    },
+    "subjects": ["biology", "chemistry"],
+    "hobbies": ["Sports", "Music"],
+    "picture": "buggs_bunny.jpg",
+    "currentAddress": "123 Looney Tunes Street, Bunnyville",
+    "state": "NCR",
+    "city": "Delhi"
+  }
+}
