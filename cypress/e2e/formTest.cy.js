@@ -10,7 +10,7 @@ describe('Student Registration Form', () => {
   
   it('Student Form submission with valid data and assert entry', () => {
     cy.fixture('testData').then((testData) => {
-      //saving values from testData to conts for easier handling 
+      //storing some values from testData to consts for easier handling 
       const day = testData.formEntry.dob.day;
       const month = testData.formEntry.dob.month;
       const year = testData.formEntry.dob.year;
