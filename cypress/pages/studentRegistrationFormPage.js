@@ -1,5 +1,5 @@
-export class FormPage {
-    navigateToFormPage() {
+export class StudentRegistrationFormPage {
+    navigateToStudentRegistrationFormPage() {
         cy.visit('/automation-practice-form');
     }
 
@@ -75,11 +75,11 @@ export class FormPage {
         return cy.findByRole('button', { name: 'Submit' });
     }
 
-    formResponse(label, value) {
+    assertStudentFormResponse(label, value) {
         return cy.get('tbody').contains('td', label).siblings('td').should('have.text', value);
     }
 
-    fillForm(firstName, lastName, email, gender, number, year, month, day, subjects, hobbies, pictureFilePath, address, stateOption, cityOption) {
+    fillStudentForm(firstName, lastName, email, gender, number, year, month, day, subjects, hobbies, pictureFilePath, address, stateOption, cityOption) {
         this.firstNameInput().clear().type(firstName);
         this.lastNameInput().clear().type(lastName);
         this.emailInput().clear().type(email);

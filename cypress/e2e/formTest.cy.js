@@ -1,15 +1,16 @@
-import { FormPage } from '../pages/formPage.js';
+import { StudentRegistrationFormPage } from '../pages/studentRegistrationFormPage.js';
 
-const formPage = new FormPage();
+const studentRegistrationFormPage = new StudentRegistrationFormPage();
 
-describe('template spec', () => {
+describe('Student Registration Form', () => {
   
   beforeEach(() => {
-    formPage.navigateToFormPage();
+    studentRegistrationFormPage.navigateToStudentRegistrationFormPage();
   });
   
-  it('Form submission with valid data and assert entry', () => {
+  it('Student Form submission with valid data and assert entry', () => {
     cy.fixture('testData').then((testData) => {
+      //saving values from testData to conts for easier handling 
       const day = testData.formEntry.dob.day;
       const month = testData.formEntry.dob.month;
       const year = testData.formEntry.dob.year;
@@ -18,7 +19,8 @@ describe('template spec', () => {
       const cityName = testData.formEntry.city.name;
       const cityOption = testData.formEntry.city.option;
 
-      formPage.fillForm(testData.formEntry.firstName,
+      //filling out the student registration form with values from testData.json
+      studentRegistrationFormPage.fillStudentForm(testData.formEntry.firstName,
          testData.formEntry.lastName,
          testData.formEntry.emailValue,
          testData.formEntry.gender,
@@ -33,10 +35,13 @@ describe('template spec', () => {
          stateOption,
          cityOption
       );
-      formPage.submitButton().click();
+      //submit the form
+      studentRegistrationFormPage.submitButton().click();
 
-      
-      formPage.formResponse(testData.formEntry.emailLabel, testData.formEntry.emailValue);
+      //asserting the form responnse by finding the label value and then asserting its sibling element value
+      testData.formEntry.formResponse.forEach(field => {
+        studentRegistrationFormPage.assertStudentFormResponse(field.label, field.value);
+      });
     });
   });
 });
