@@ -4,7 +4,7 @@
     "lastName": "Bunny",
     "emailValue": "buggs.bunny@example.com",
     "gender": "Male",
-    "mobile": "1234567890",
+    "mobileNumber": "1234567890",
     "dob": {
       "day": "15",
       "month": "March",

@@ -24,7 +24,7 @@ describe('Student Registration Form', () => {
          testData.formEntry.lastName,
          testData.formEntry.emailValue,
          testData.formEntry.gender,
-         testData.formEntry.mobile,
+         testData.formEntry.mobileNumber,
          year,
          month,
          day,
@@ -44,4 +44,40 @@ describe('Student Registration Form', () => {
       });
     });
   });
+
+  it('Student form required fields validation and assert CSS border colour', () => {
+      studentRegistrationFormPage.submitButton().click();
+      const redBorderColor = 'rgb(220, 53, 69)'; //saving the border colour value as a const
+      //storing extra data for some of the required fields as consts 
+      const male = 'Male';
+      const female = 'Female';
+      const other = 'Other';
+      const sports = 'Sports';
+      const reading = 'Reading';
+      const music = 'Music';
+      //Creating an array of the requited fields 
+      const requiredFields = [
+          studentRegistrationFormPage.firstNameInput(),
+          studentRegistrationFormPage.lastNameInput(),
+          studentRegistrationFormPage.emailInput(),
+          studentRegistrationFormPage.genderRadioButton(male),
+          studentRegistrationFormPage.genderRadioButton(female),
+          studentRegistrationFormPage.genderRadioButton(other),
+          studentRegistrationFormPage.mobileNumberInput(),
+          studentRegistrationFormPage.subjectsInput(),
+          studentRegistrationFormPage.hobbiesCheckbox(sports),
+          studentRegistrationFormPage.hobbiesCheckbox(reading),
+          studentRegistrationFormPage.hobbiesCheckbox(music),
+          studentRegistrationFormPage.currentAddressInput(),
+          studentRegistrationFormPage.stateDropDown(),
+          studentRegistrationFormPage.cityDropDown()
+      ];
+
+      //a forEach loop to go through and assert that the border colour is on show
+      requiredFields.forEach(registrationField => {
+          registrationField.should('have.css', 'border-color', redBorderColor);
+      });
+  });
+
+
 });
