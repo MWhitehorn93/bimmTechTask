@@ -1,0 +1,38 @@
+{
+  "formEntry": {
+    "firstName": "Buggs",
+    "lastName": "Bunny",
+    "emailValue": "buggs.bunny@example.com",
+    "gender": "Male",
+    "mobile": "1234567890",
+    "dob": {
+      "day": "15",
+      "month": "March",
+      "year": "1990"
+    },
+    "subjects": "biology",
+    "hobbies": ["Sports", "Music"],
+    "pictureFilePath": "cypress/fixtures/Buggsbunny.png",
+    "currentAddress": "123 Looney Tunes Street, Bunnyville",
+    "state": {  
+      "name": "NCR",
+      "option": "0"
+    },
+    "city": {
+      "name": "Delhi",
+      "option": "0"
+    },
+    "formResponse": [
+      { "label": "Student Name", "value": "Buggs Bunny" },
+      { "label": "Student Email", "value": "buggs.bunny@example.com" },
+      { "label": "Gender", "value": "Male" },
+      { "label": "Mobile", "value": "1234567890" },
+      { "label": "Date of Birth", "value": "15 March,1990" },
+      { "label": "Subjects", "value": "Biology" },
+      { "label": "Hobbies", "value": "Sports, Music" },
+      { "label": "Picture", "value": "Buggsbunny.png" },
+      { "label": "Address", "value": "123 Looney Tunes Street, Bunnyville" },
+      { "label": "State and City", "value": "NCR Delhi" }
+    ]      
+  }
+}
