@@ -1,20 +1,27 @@
 {
-  "formEntryData": {
+  "formEntry": {
     "firstName": "Buggs",
     "lastName": "Bunny",
-    "email": "buggs.bunny@example.com",
+    "emailLabel": "Student Email",
+    "emailValue": "buggs.bunny@example.com",
     "gender": "Male",
     "mobile": "1234567890",
-     "dateOfBirth": {
+    "dob": {
       "day": "15",
       "month": "March",
       "year": "1990"
     },
-    "subjects": ["biology", "chemistry"],
+    "subjects": "biology",
     "hobbies": ["Sports", "Music"],
-    "picture": "buggs_bunny.jpg",
+    "pictureFilePath": "cypress/fixtures/Buggsbunny.png",
     "currentAddress": "123 Looney Tunes Street, Bunnyville",
-    "state": "NCR",
-    "city": "Delhi"
+    "state": {  
+      "name": "NCR",
+      "option": "0"
+    },
+    "city": {
+      "name": "Delhi",
+      "option": "0"
+    }
   }
 }

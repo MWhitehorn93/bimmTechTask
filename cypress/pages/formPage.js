@@ -15,34 +15,89 @@ export class FormPage {
         return cy.get('#userEmail');
     }
 
-    //gender
+    genderRadioButton(gender){  
+        return cy.findByRole('radio', { name: gender });
+    }
 
     numberInput() {
         return cy.get('#userNumber');
     }
 
-    //date of birth
+    dobInput() {
+        return cy.get('#dateOfBirthInput');
+    }
 
-    //subjects
+    dobDaySelect(day) {
+        return cy.get(`.react-datepicker__day--0${day}`);
+    }
 
-    //hobbies
+    dobMonthSelect() {
+        return cy.get('.react-datepicker__month-select');
+    }
 
-    //picture
+    dobYearSelect() {
+        return cy.get('.react-datepicker__year-select');
+    }
+
+    subjectsInput() {
+        return cy.get('#subjectsInput');
+    }
+
+    hobbiesCheckbox(hobby) {
+        return cy.findByRole('checkbox', { name: hobby });
+    }
+
+    pictureInput() {
+        return cy.get('#uploadPicture');
+    }
 
     currentAddressInput() {
         return cy.get('#currentAddress');
     }
 
-    fillForm(firstName, lastName, email, number, address) {
+    stateDropDown() {
+        return cy.get('#state');
+    }
+
+    stateSelectValue(stateOption) {
+        return cy.get(`#react-select-3-option-${stateOption}`);
+    }
+
+    cityDropDown() {
+        return cy.get('#city');
+    }
+
+    citySelectValue(cityOption) {
+        return cy.get(`#react-select-4-option-${cityOption}`);
+    }
+
+    submitButton() {
+        return cy.findByRole('button', { name: 'Submit' });
+    }
+
+    formResponse(label, value) {
+        return cy.get('tbody').contains('td', label).siblings('td').should('have.text', value);
+    }
+
+    fillForm(firstName, lastName, email, gender, number, year, month, day, subjects, hobbies, pictureFilePath, address, stateOption, cityOption) {
         this.firstNameInput().clear().type(firstName);
         this.lastNameInput().clear().type(lastName);
         this.emailInput().clear().type(email);
-        //gender
+        this.genderRadioButton(gender).check();
         this.numberInput().clear().type(number);
-        //DOB
-        //subjects
-        //hobbies
-        //picture
+        this.dobInput().click();
+        this.dobYearSelect().select(year);
+        this.dobMonthSelect().select(month);
+        this.dobDaySelect(day).click();
+        this.subjectsInput().clear().type(subjects).type('{enter}');
+        hobbies.forEach(hobby => {
+            this.hobbiesCheckbox(hobby).check();
+        });
+        this.pictureInput().selectFile(pictureFilePath, { force: true });
         this.currentAddressInput().clear().type(address);
+        this.stateDropDown().click();
+        this.stateSelectValue(stateOption).click();
+        this.cityDropDown().click();
+        this.citySelectValue(cityOption).click();
     }
 }
