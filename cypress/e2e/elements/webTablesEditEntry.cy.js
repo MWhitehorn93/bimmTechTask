@@ -49,9 +49,9 @@ describe('WebTables edit entry tests', () => {
             webTablesPage.editButtonByFirstName(testData.webTables.editEntry.firstName).click({ force: true });
             //Clearing existing values and then entering new values. 
             webTablesPage.emailInput().clear().type(testData.webTables.editEntry.invalidEmail);
-            //Click the close button to cancel the edit
+            //Click the submit button
             webTablesPage.submitButton().click();
-            //Asserting the values have not been updated for Cierra
+            //Asserting the border colour of the email input is red
             webTablesPage.emailInput().should('have.css', 'border-color', redBorderColor);
         });
     }); 
