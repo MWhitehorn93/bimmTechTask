@@ -15,6 +15,10 @@ export class WebTablesPage {
         return cy.get('td').contains(firstName).siblings('td').find('span[title="Edit"]');
     }
 
+    getValueByFirstName(firstName, value) {
+        return cy.get('td').contains(firstName).siblings('td').contains(value)
+    }
+
     emailValueByFirstName(firstName) {
         return cy.get('td').contains(firstName).siblings('td').eq(2);
     }
