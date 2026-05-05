@@ -19,7 +19,7 @@ export class StudentRegistrationFormPage {
         return cy.findByRole('radio', { name: gender });
     }
 
-    numberInput() {
+    mobileNumberInput() {
         return cy.get('#userNumber');
     }
 
@@ -79,12 +79,12 @@ export class StudentRegistrationFormPage {
         return cy.get('tbody').contains('td', label).siblings('td').should('have.text', value);
     }
 
-    fillStudentForm(firstName, lastName, email, gender, number, year, month, day, subjects, hobbies, pictureFilePath, address, stateOption, cityOption) {
+    fillStudentForm(firstName, lastName, email, gender, mobileNumber, year, month, day, subjects, hobbies, pictureFilePath, address, stateOption, cityOption) {
         this.firstNameInput().clear().type(firstName);
         this.lastNameInput().clear().type(lastName);
         this.emailInput().clear().type(email);
         this.genderRadioButton(gender).check();
-        this.numberInput().clear().type(number);
+        this.mobileNumberInput().clear().type(mobileNumber);
         this.dobInput().click();
         this.dobYearSelect().select(year);
         this.dobMonthSelect().select(month);
