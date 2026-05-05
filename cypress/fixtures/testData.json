@@ -35,5 +35,26 @@
       { "label": "Address", "value": "123 Looney Tunes Street, Bunnyville" },
       { "label": "State and City", "value": "NCR Delhi" }
     ]      
+  },
+  "webTables":{
+    "deleteEntry": {
+      "firstName": "Kierra",
+      "lastName": "Gentry",
+      "age": "29",
+      "email": "kierra@example.com",
+      "salary": "2000",
+      "department": "Legal"
+    },
+    "editEntry": {
+      "firstName": "Cierra",
+      "lastName": "Vega",
+      "age": "39",
+      "validEmail": "cierra@example.com",
+      "invalidEmail": "cierraexample.com",
+      "oldSalary": "10000",
+      "newSalary": "12000",
+      "oldDepartment": "Insurance",
+      "newDepartment": "Legal"
+    }
   }
 }
