@@ -15,12 +15,20 @@ export class WebTablesPage {
         return cy.get('td').contains(firstName).siblings('td').find('span[title="Edit"]');
     }
 
+    emailValueByFirstName(firstName) {
+        return cy.get('td').contains(firstName).siblings('td').eq(2);
+    }
+
     salaryValueByFirstName(firstName) {
         return cy.get('td').contains(firstName).siblings('td').eq(3);
     }
 
     departmentValueByFirstName(firstName) {
         return cy.get('td').contains(firstName).siblings('td').eq(4);
+    }
+
+    emailInput() {
+        return cy.get('#userEmail')
     }
 
     salaryInput() {
