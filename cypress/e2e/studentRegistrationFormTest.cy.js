@@ -1,6 +1,7 @@
 import { StudentRegistrationFormPage } from '../pages/studentRegistrationFormPage.js';
 
 const studentRegistrationFormPage = new StudentRegistrationFormPage();
+const redBorderColor = 'rgb(220, 53, 69)'; //saving the border colour value as a const
 
 describe('Student Registration Form', () => {
   
@@ -47,7 +48,6 @@ describe('Student Registration Form', () => {
 
   it('Student form required fields validation and assert CSS border colour', () => {
       studentRegistrationFormPage.submitButton().click();
-      const redBorderColor = 'rgb(220, 53, 69)'; //saving the border colour value as a const
       //storing extra data for some of the required fields as consts 
       const male = 'Male';
       const female = 'Female';
@@ -73,11 +73,19 @@ describe('Student Registration Form', () => {
           studentRegistrationFormPage.cityDropDown()
       ];
 
-      //a forEach loop to go through and assert that the border colour is on show
+      //a forEach loop to go through and assert that the border colour is on show on each field stored above
       requiredFields.forEach(registrationField => {
           registrationField.should('have.css', 'border-color', redBorderColor);
       });
   });
 
-
+  it('Student form validation for email field with invalid email', () => {
+    cy.fixture('testData').then((testData) => {
+      //filling out the email field with an invalid value
+      studentRegistrationFormPage.emailInput().type(testData.formEntry.invalidEmail);
+      studentRegistrationFormPage.submitButton().click();
+      //asserting that the border coulor of the email field is red
+      studentRegistrationFormPage.emailInput().should('have.css', 'border-color', redBorderColor);
+    });
+  });
 });
