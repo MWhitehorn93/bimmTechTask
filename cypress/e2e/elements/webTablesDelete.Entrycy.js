@@ -2,7 +2,7 @@ import { WebTablesPage } from '../../pages/webTables';
 
 const webTablesPage = new WebTablesPage();
 
-describe('WebTables', () => {
+describe('WebTables delete tests', () => {
     beforeEach(() => {
         webTablesPage.navigateToWebTablesPage();
     });
