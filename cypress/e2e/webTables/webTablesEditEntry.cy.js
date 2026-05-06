@@ -11,8 +11,9 @@ describe('WebTables edit entry tests', () => {
     it('Web Tables Edit specific entry', () => {
         cy.fixture('testData').then((testData) => {
             //Asserting the existing values of Cierra
-            webTablesPage.salaryValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.oldSalary);
-            webTablesPage.departmentValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.oldDepartment);
+            //webTablesPage.salaryValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.oldSalary);
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.oldSalary).should('exist');
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.oldDepartment).should('exist');
             //Open up the edit form for Cierra
             webTablesPage.editButtonByFirstName(testData.webTables.editEntry.firstName).click({ force: true });
             //Clearing existing values and then entering new values. 
@@ -20,15 +21,15 @@ describe('WebTables edit entry tests', () => {
             webTablesPage.departmentInput().clear().type(testData.webTables.editEntry.newDepartment);
             webTablesPage.submitButton().click();
             //Asserting the values have succesfully be updated for Cierra
-            webTablesPage.salaryValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.newSalary);
-            webTablesPage.departmentValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.newDepartment);
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.newSalary).should('exist');
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.newDepartment).should('exist');
         });
    });
    it('Web Tables Edit specific entry and then cancel', () => {
         cy.fixture('testData').then((testData) => {
             //Asserting the existing values of Cierra
-            webTablesPage.salaryValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.oldSalary);
-            webTablesPage.departmentValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.oldDepartment);
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.oldSalary).should('exist');
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.oldDepartment).should('exist');
             //Open up the edit form for Cierra
             webTablesPage.editButtonByFirstName(testData.webTables.editEntry.firstName).click({ force: true });
             //Clearing existing values and then entering new values. 
@@ -37,14 +38,14 @@ describe('WebTables edit entry tests', () => {
             //Click the close button to cancel the edit
             webTablesPage.closeEditFormButton().click();
             //Asserting the values have not been updated for Cierra
-            webTablesPage.salaryValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.oldSalary);
-            webTablesPage.departmentValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.oldDepartment);
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.oldSalary).should('exist');
+            webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.oldDepartment).should('exist');
         });
    });
    it('Web Tables edit data validation', () => {
         cy.fixture('testData').then((testData) => {
            //Asserting the existing values of Cierra
-           webTablesPage.emailValueByFirstName(testData.webTables.editEntry.firstName).should('contain', testData.webTables.editEntry.validEmail);
+           webTablesPage.getValueByFirstName(testData.webTables.editEntry.firstName, testData.webTables.editEntry.validEmail).should('exist');
             //Open up the edit form for Cierra
             webTablesPage.editButtonByFirstName(testData.webTables.editEntry.firstName).click({ force: true });
             //Clearing existing values and then entering new values. 

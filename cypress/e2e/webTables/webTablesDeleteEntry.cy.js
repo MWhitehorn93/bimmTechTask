@@ -9,9 +9,12 @@ describe('WebTables delete tests', () => {
 
     it('Web Tables Delete specific entry', () => {
         cy.fixture('testData').then((testData) => {
-            webTablesPage.webTableBody().should('contain', testData.webTables.deleteEntry.firstName);
+            //assert that the entry is going to be deleted is shown
+            webTablesPage.getValueByFirstName(testData.webTables.deleteEntry.firstName, testData.webTables.deleteEntry.firstName).should('exist');
+            //delete entry
             webTablesPage.deleteButtonByFirstName(testData.webTables.deleteEntry.firstName).click({ force: true });
-            webTablesPage.webTableBody().should('not.contain', testData.webTables.deleteEntry.firstName);
+            //assert entry has been deleted
+            webTablesPage.getValueByFirstName(testData.webTables.deleteEntry.firstName, testData.webTables.deleteEntry.firstName).should('not.exist');
         });
     });
 });
