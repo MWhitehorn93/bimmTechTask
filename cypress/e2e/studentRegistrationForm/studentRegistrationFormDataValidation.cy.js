@@ -1,7 +1,6 @@
 import { StudentRegistrationFormPage } from '../../pages/studentRegistrationFormPage.js';
 
-const studentRegistrationFormPage = new StudentRegistrationFormPage();
-const redBorderColor = 'rgb(220, 53, 69)'; //saving the border colour value as a const
+const studentRegistrationFormPage = new StudentRegistrationFormPage(); 
 
 describe('Student Registration Form Data Validation', () => {
   
@@ -38,7 +37,7 @@ describe('Student Registration Form Data Validation', () => {
 
       //a forEach loop to go through and assert that the border colour is on show on each field stored above
       requiredFields.forEach(registrationField => {
-          registrationField.should('have.css', 'border-color', redBorderColor);
+          registrationField.shouldHaveRedBorderColour();
       });
   });
 
@@ -48,7 +47,7 @@ describe('Student Registration Form Data Validation', () => {
       studentRegistrationFormPage.emailInput().type(testData.formEntry.invalidEmail);
       studentRegistrationFormPage.submitButton().click();
       //asserting that the border coulor of the email field is red
-      studentRegistrationFormPage.emailInput().should('have.css', 'border-color', redBorderColor);
+      studentRegistrationFormPage.emailInput().shouldHaveRedBorderColour();
     });
   });
 });

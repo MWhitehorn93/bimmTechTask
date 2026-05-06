@@ -1,7 +1,6 @@
 import { StudentRegistrationFormPage } from '../../pages/studentRegistrationFormPage.js';
 
 const studentRegistrationFormPage = new StudentRegistrationFormPage();
-const redBorderColor = 'rgb(220, 53, 69)'; //saving the border colour value as a const
 
 describe('Student Registration Form', () => {
   
