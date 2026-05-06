@@ -7,7 +7,7 @@ Cypress ennd to end test suite for bimm techTask.
 -npm
 
 ## Installation 
-Close the repo from the url below. 
+Clone the repo from the url below. 
 
 url: https://github.com/MWhitehorn93/bimmTechTask
 

@@ -7,7 +7,8 @@ https://demoqa.com/automation-practice-form
 # Steps to reproduce #
 1. Navigate to the URL above (https://demoqa.com/automation-practice-form)
 2. Ensure you DO NOT enter any values
-3. Click the submit button. 
+3. Click the submit button
+4. Look at the border colours of the fields 
 
 # Description #
 The following fields are showing the incorrect validation border when the submit is clicked:
