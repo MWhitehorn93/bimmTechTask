@@ -53,7 +53,7 @@ describe('WebTables edit entry tests', () => {
             //Click the submit button
             webTablesPage.submitButton().click();
             //Asserting the border colour of the email input is red
-            webTablesPage.emailInput().should('have.css', 'border-color', redBorderColor);
+            webTablesPage.emailInput().shouldHaveRedBorderColour();
         });
     }); 
 });
